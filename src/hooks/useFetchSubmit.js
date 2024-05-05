@@ -3,6 +3,7 @@ function useSubmitAndFetch() {
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [submit, setSubmit] = useState(null);
   const SERVER = "http://localhost:3000/products/q=";
 
   const fetchData = async () => {
@@ -16,6 +17,12 @@ function useSubmitAndFetch() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (inputValue === "") {
+      setSubmit(false);
+      return;
+    } else {
+      setSubmit(true);
+    }
     fetchData();
   };
 
@@ -25,6 +32,6 @@ function useSubmitAndFetch() {
     setInputValue(encodedValue);
   };
 
-  return { data, loading, inputValue, handleChange, handleSubmit };
+  return { data, loading, inputValue, submit, handleChange, handleSubmit };
 }
 export default useSubmitAndFetch;

@@ -5,9 +5,10 @@ import useFetchSubmit from "../hooks/useFetchSubmit";
 import Results from "./Results";
 import { useEffect } from "react";
 import ProductLoad from "./ProductLoad";
+import Spinner from "../assets/images/spinner.svg";
 
 function Form() {
-  const { data, loading, inputValue, handleChange, handleSubmit } =
+  const { data, loading, inputValue, submit, handleChange, handleSubmit } =
     useFetchSubmit();
 
   const dataArray = Array.isArray(data) ? data : [data];
@@ -38,7 +39,24 @@ function Form() {
         </label>
         <Button>Search</Button>
       </form>
-      {loading && <ProductLoad loadState={loading} />}
+      {submit === false && (
+        <ProductLoad>
+          {" "}
+          Please enter a URL to search{" "}
+          <span role="img" aria-label="search">
+            🔍
+          </span>
+        </ProductLoad>
+      )}
+      {loading && (
+        <ProductLoad>
+          {" "}
+          Loading{" "}
+          <span role="img" aria-label="loading">
+            <img id="spinner" src={Spinner} alt="loading" className="size-4" />
+          </span>
+        </ProductLoad>
+      )}
       {data && <Results results={dataArray} />}
     </>
   );
