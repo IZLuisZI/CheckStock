@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "segoe ui", sans-serif;
+  }
+  h1 {
+    text-shadow: rgba(255, 255, 255, 0.89) 0px 0px 39px;
+    animation: text-shadow-glow 10s infinite linear;
+  }
+  #spinner {
+    animation: spinner 1s linear infinite;
+  }
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes text-shadow-glow {
+    0% {
+      text-shadow: rgba(255, 0, 0, 0.89) 0px 0px 39px;
+      opacity: 0.75;
+    }
+    10% {
+      text-shadow: rgba(255, 26, 26, 0.89) 0px 0px 39px;
+    }
+    20% {
+      text-shadow: rgba(255, 51, 51, 0.89) 0px 0px 39px;
+    }
+    30% {
+      text-shadow: rgba(255, 77, 77, 0.89) 0px 0px 39px;
+    }
+    40% {
+      text-shadow: rgba(255, 102, 102, 0.89) 0px 0px 39px;
+    }
+    50% {
+      text-shadow: rgba(0, 255, 213, 0.89) 0px 0px 39px;
+      opacity: 1;
+    }
+    60% {
+      text-shadow: rgba(0, 204, 170, 0.89) 0px 0px 39px;
+    }
+    70% {
+      text-shadow: rgba(255, 255, 0, 0.89) 0px 0px 39px;
+    }
+    80% {
+      text-shadow: rgba(186, 186, 0, 0.89) 0px 0px 39px;
+    }
+    90% {
+      text-shadow: rgba(135, 135, 0, 0.89) 0px 0px 39px;
+    }
+    100% {
+      text-shadow: rgba(65, 65, 0, 0.696) 0px 0px 39px;
+      opacity: 0.75;
+    }
+  }
+}
