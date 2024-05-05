@@ -2,6 +2,8 @@
 
 Best Buy Stock Checker is a web application that allows users to check the stock status of products at Best Buy.
 
+The notification system is yet to be implemented
+
 ## Project Structure
 
 The project is structured as follows:
