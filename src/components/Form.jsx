@@ -13,10 +13,6 @@ function Form() {
 
   const dataArray = Array.isArray(data) ? data : [data];
 
-  useEffect(() => {
-    console.log(data);
-    console.log(dataArray);
-  }, [data, dataArray]);
   return (
     <>
       <form

@@ -1,6 +1,5 @@
 import Form from "./components/Form";
 import Title from "./components/Title";
-import ModalForm from "./components/ModalForm";
 
 function App() {
   return (
