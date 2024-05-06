@@ -3,7 +3,6 @@ import SearchIcon from "../assets/images/search.svg";
 import Button from "./Button";
 import useFetchSubmit from "../hooks/useFetchSubmit";
 import Results from "./Results";
-import { useEffect } from "react";
 import ProductLoad from "./ProductLoad";
 import Spinner from "../assets/images/spinner.svg";
 
