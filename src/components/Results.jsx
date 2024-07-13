@@ -46,7 +46,7 @@ function Results({ results }) {
           <div className="flex flex-col gap-4 justify-evenly">
             <h2 className="text-3xl font-bold">{result.productName}</h2>
             <p className="text-2xl">{result.productPrice}</p>
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 flex-col md:flex-row items-center">
               <h4
                 className={`text-xl flex items-center p-3 w-fit rounded-xl font-bold  ${
                   result.hasStock ? IN_STOCK_STYLES : OUT_OF_STOCK_STYLES

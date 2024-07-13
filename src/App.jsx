@@ -8,7 +8,7 @@ function App() {
       bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
-      <section className="mx-12 lg:mx-96 lg:px-32">
+      <section className="mx-12 md:mx-16 lg:mx-20 xl:mx-44 2xl:mx-[450px] ">
         <Title />
         <Form />
       </section>

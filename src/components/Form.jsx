@@ -3,6 +3,7 @@ import SearchIcon from "../assets/images/search.svg";
 import Button from "./Button";
 import useFetchSubmit from "../hooks/useFetchSubmit";
 import Results from "./Results";
+import Paste from "../assets/images/paste.svg";
 import ProductLoad from "./ProductLoad";
 import Spinner from "../assets/images/spinner.svg";
 
@@ -12,6 +13,12 @@ function Form() {
 
   const dataArray = Array.isArray(data) ? data : [data];
 
+  const handleclick = (e) => {
+    e.preventDefault();
+    navigator.clipboard.readText().then((text) => {
+      handleChange({ target: { value: text } });
+    });
+  };
   return (
     <>
       <form
@@ -32,12 +39,22 @@ function Form() {
             onChange={handleChange}
           />
         </label>
-        <Button>Search</Button>
+        <div className="flex gap-2 items-center">
+          <button
+            id="paste"
+            onClick={(e) => handleclick(e)}
+            title="Paste url"
+            className="ring-1 bg-gray-300 ring-gray-400 rounded-md h-1/2 grid place-items-center"
+          >
+            <img src={Paste} className="size-6" alt="Paste Url" />
+          </button>
+          <Button disabled={loading}>Search</Button>
+        </div>
       </form>
       {submit === false && (
         <ProductLoad>
           {" "}
-          Please enter a URL to search{" "}
+          Please enter a valid URL to search{" "}
           <span role="img" aria-label="search">
             🔍
           </span>

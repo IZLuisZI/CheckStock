@@ -1,4 +1,15 @@
 import { useState } from "react";
+/**
+ * Custom hook for submitting and fetching data.
+ *
+ * @returns {Object} An object containing the following properties:
+ *   - data: The fetched data.
+ *   - loading: A boolean indicating if the data is being fetched.
+ *   - inputValue: The current input value.
+ *   - submit: A boolean indicating if the form has been submitted.
+ *   - handleChange: A function to handle input value changes.
+ *   - handleSubmit: A function to handle form submission.
+ */
 function useSubmitAndFetch() {
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState(null);
@@ -8,16 +19,16 @@ function useSubmitAndFetch() {
 
   const fetchData = async () => {
     setLoading(true);
-    setTimeout(async () => {
-      const response = await fetch(SERVER + inputValue);
-      const data = await response.json();
-      setData(data[0]);
-      setLoading(false);
-    }, 2000); // 2000 milliseconds = 2 seconds
+
+    const response = await fetch(SERVER + inputValue);
+    const data = await response.json();
+    setData(data[0]);
+    setLoading(false);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue === "") {
+    const inputUrl = inputValue.includes("bestbuy.com");
+    if (inputValue === "" || !inputUrl) {
       setSubmit(false);
       return;
     } else {
